@@ -41,8 +41,13 @@
         var grade = null;
         var atendenceok = false;
         var obedieant = true;
+        var givesTreats = false;
         if(marks > 900 && atendenceok || obedieant ){
-            grade = 'A+';
+            if(givesTreats){
+                grade = 'A+';
+            } else{
+                grade = 'A-';
+            }
         } else if(marks > 800){
             grade = 'A';
         } else if(marks > 700){
