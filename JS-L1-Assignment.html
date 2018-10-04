@@ -7,39 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
+<style>
+</style>
 
 <body>
-    <!-- <form action=""> -->
-        <input id="a" type="text" placeholder="First value">
-        <input id="b" type="text" placeholder="second value">
-        <input id="c" type="text" placeholder="enter operation">
-        <button type="submit" onclick="helo()">Button</button>
-    <!-- </form> -->
+
+    <input id="aa" type="text" placeholder="First value">
+    <input id="bb" type="text" placeholder="second value">
+
+    <select name="#" id="cc">
+        <option value="0">Select Operater:</option>
+        <option value="1">PLUS</option>
+        <option value="2">MINUS</option>
+        <option value="3">DIVIDE</option>
+        <option value="4">MULTIPLY</option>
+    </select>
+    <button type="submit" onclick="helo()">Button</button>
+    <p id="anshow">ans</p>
+
     <script>
 
         function helo() {
 
 
-            var a = +document.getElementById('a').value;
-            var b = +document.getElementById('b').value;
-            var ca = document.getElementById('c').value;
+            var a = +document.getElementById('aa').value;
+            var b = +document.getElementById('bb').value;
+            var c = document.getElementById('cc').value;
 
             var d = null;
-            if (ca == '-') {
+            if (c == '2') {
                 d = a - b;
-            } else if (ca == '+') {
+            } else if (c == '1') {
                 d = a + b;
-            } else if (ca == '/') {
+            } else if (c == '3') {
                 d = a / b;
-            } else if (ca == '*') {
+            } else if (c == '4') {
                 d = a * b;
-            }
 
+            }
+            document.getElementById('anshow').innerHTML = d;
             console.log(d);
         }
-
-
     </script>
 </body>
 

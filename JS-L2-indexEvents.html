@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+function load_home() {
+     document.getElementById("content").innerHTML='<object type="text/html" data="home.html" ></object>';
+}
+</script>
+
+<body>
+    <button onclick="alert('Hello onclick Event')" >onclick EventTest</button>
+    <button ondblclick="alert('Hello ondblclick Event')" >ondblclick EventTest</button>
+    <button onmouseover="alert('onmouseover Event')" >onmouseover EventTest</button>
+    <button>FUN EventTest</button>
+    <div id="topBar"> <a href ="#" onclick="load_home()"> HOME </a> </div>
+<div id ="content"> div load </div>
+</body>
+
+</html>
