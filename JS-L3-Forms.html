@@ -6,29 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
+    <style>
+input#inp , #inp {
+    width: 70vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+#dlab{
+    width: 20%;
+}
+button {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    left: 50%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+    </style>
 </head>
 
 <body>
-    <form id="myForm"  method="GET" >
+    <div>
 
-        <input name="uname" type="text"/>
-        <input name="password" type="password"/>
-        <input name="age" type="age"  />
 
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
-    </form>
+
+        <table cellspacing="2" cellpadding="2">
+            <form id="myForm" method="GET">
+                <tr>
+                    <td>Name</td>
+                    <td><input id="inp" name="uname" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Street</td>
+                    <td><input id="inp" name="Street" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td><input id="inp" name="Number" type="number" /></td>
+                </tr>
+                <tr>
+                    <td>Zip Code</td>
+                    <td><input id="inp" name="Zip Code" type="number" /></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        <select id="inp" name="Country">
+                            <option value="-1" selected>[choose yours]</option>
+                            <option value="1">FSD</option>
+                            <option value="2">Islamabad</option>
+                            <option value="3">Lahore</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="gender">
+                        <label for="Male">Male</label>
+                        <input class="gSelector" type="radio" name="gender" value="Male" id="Male">
+                        <label for="Female">Female</label>
+                        <input class="gSelector" type="radio" name="gender" value="Female" id="Female">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="reset">Reset</button>
+                        <button type="submit">Submit</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+        <h1 id="result"></h1>
 </body>
 <Script>
-    myForm.onsubmit = function(){
+    myForm.onsubmit = function () {
+        event.preventDefault();
+        var isValid = true;
 
-        var password = document.getElementsByName('password')[0]
-        if(password.value.length < 8){
-            console.log("not correct")
+        var uname = document.getElementsByName('uname')[0];
+        if (uname.value.length < 4) {
+            console.log("not correct Name");
+            isValid = false;
+
+
         }
 
+
+        
+
+        //var
+        if (document.querySelector('.gSelector:checked') == null) {
+            isValid = false;
+            console.log("Gender not selected");
+
+        }
+
+
+
+        if (isValid == true) {
+
+            myForm.submit();
+            document.getElementById('result').innerHTML = "Form Submited";
+        } else {
+            document.getElementById('result').innerHTML = "Form NOT Submited";
+
+        }
         event.preventDefault();
-        console.log(10);
+        // console.log(10);
     }
 
 
