@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+
+<body>
+    <form id="myForm"  method="GET" >
+
+        <input name="uname" type="text"/>
+        <input name="password" type="password"/>
+        <input name="age" type="age"  />
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<Script>
+    myForm.onsubmit = function(){
+
+        var password = document.getElementsByName('password')[0]
+        if(password.value.length < 8){
+            console.log("not correct")
+        }
+
+        event.preventDefault();
+        console.log(10);
+    }
+
+
+</Script>
+
+</html>
