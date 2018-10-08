@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
     <style>
-input#inp , #inp {
+input.inpStyl , #inp {
     width: 70vw;
     padding: 12px 20px;
     margin: 8px 0;
@@ -55,24 +55,24 @@ div {
             <form id="myForm" method="GET">
                 <tr>
                     <td>Name</td>
-                    <td><input id="inp" name="uname" type="text" /></td>
+                    <td><input class="inpStyl" id="inp" oninput="CheckType()" name="uname" type="text" /></td>
                 </tr>
                 <tr>
                     <td>Street</td>
-                    <td><input id="inp" name="Street" type="text" /></td>
+                    <td><input class="inpStyl" id="inp1" name="Street" type="text" /></td>
                 </tr>
                 <tr>
                     <td>Number</td>
-                    <td><input id="inp" name="Number" type="number" /></td>
+                    <td><input class="inpStyl" id="inp2" name="Number" type="number" /></td>
                 </tr>
                 <tr>
                     <td>Zip Code</td>
-                    <td><input id="inp" name="Zip Code" type="number" /></td>
+                    <td><input class="inpStyl" id="inp4" name="Zip Code" type="number" /></td>
                 </tr>
                 <tr>
                     <td>City</td>
                     <td>
-                        <select id="inp" name="Country">
+                        <select id="inp4" name="Country">
                             <option value="-1" selected>[choose yours]</option>
                             <option value="1">FSD</option>
                             <option value="2">Islamabad</option>
@@ -103,6 +103,8 @@ div {
     myForm.onsubmit = function () {
         event.preventDefault();
         var isValid = true;
+
+
 
         var uname = document.getElementsByName('uname')[0];
         if (uname.value.length < 4) {
@@ -136,6 +138,18 @@ div {
         // console.log(10);
     }
 
+
+
+//   var check = document.getElementById('inp');
+        function CheckType(event) {
+        var char = inp.value.split('');
+        var lastChar = char[char.length - 1];
+        console.log(lastChar);
+        if (lastChar && !isNaN(lastChar) ) {
+           inp.value = inp.value.slice(0, inp.value.length-1);
+            // console.log(inp);
+        }
+    }
 
 </Script>
 
