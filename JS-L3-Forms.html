@@ -7,23 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
     <style>
-input.inpStyl , #inp {
+
+        /* tr , td {
+    border: 2px solid red;
+}         */
+input.inpStyl , select.inpStylSelect  {
     width: 70vw;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
 }
-
 #dlab{
     width: 20%;
 }
 button {
-    width: 50%;
-    background-color: #4CAF50;
+    width: 20%;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -31,11 +32,13 @@ button {
     border-radius: 4px;
     cursor: pointer;
     position: relative;
-    left: 50%;
+    left: 59%;
 }
-
-button:hover {
-    background-color: #45a049;
+button.rest{
+    background-color: red;
+}
+button.sub{
+    background-color: #4CAF50;
 }
 
 div {
@@ -49,13 +52,12 @@ div {
 <body>
     <div>
 
-
-
         <table cellspacing="2" cellpadding="2">
             <form id="myForm" method="GET">
                 <tr>
                     <td>Name</td>
-                    <td><input class="inpStyl" id="inp" oninput="CheckType()" name="uname" type="text" /></td>
+                    <!-- oninput="CheckType()" -->
+                    <td><input class="inpStyl" id="inp" name="uname" type="text" /></td>
                 </tr>
                 <tr>
                     <td>Street</td>
@@ -72,7 +74,7 @@ div {
                 <tr>
                     <td>City</td>
                     <td>
-                        <select id="inp4" name="Country">
+                        <select class="inpStylSelect" id="inp5" name="Country">
                             <option value="-1" selected>[choose yours]</option>
                             <option value="1">FSD</option>
                             <option value="2">Islamabad</option>
@@ -81,18 +83,22 @@ div {
                     </td>
                 </tr>
                 <tr>
+                    <td><label for="Male">Male</label></td>
                     <td id="gender">
-                        <label for="Male">Male</label>
                         <input class="gSelector" type="radio" name="gender" value="Male" id="Male">
-                        <label for="Female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Female">Female</label></td>
+                    <td>
                         <input class="gSelector" type="radio" name="gender" value="Female" id="Female">
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <button type="reset">Reset</button>
-                        <button type="submit">Submit</button>
+                        <button class="rest" type="reset">Cancal</button>
+                        <button class="sub" type="submit">Submit</button>
                     </td>
                 </tr>
             </form>
@@ -101,6 +107,7 @@ div {
 </body>
 <Script>
     myForm.onsubmit = function () {
+        
         event.preventDefault();
         var isValid = true;
 
@@ -115,7 +122,7 @@ div {
         }
 
 
-        
+
 
         //var
         if (document.querySelector('.gSelector:checked') == null) {
@@ -130,23 +137,25 @@ div {
 
             myForm.submit();
             document.getElementById('result').innerHTML = "Form Submited";
+            // return false;
         } else {
             document.getElementById('result').innerHTML = "Form NOT Submited";
 
         }
-        event.preventDefault();
+        
         // console.log(10);
     }
 
 
 
-//   var check = document.getElementById('inp');
-        function CheckType(event) {
+    //   var check = document.getElementById('inp');
+
+    inp.oninput = function CheckType(event) {
         var char = inp.value.split('');
         var lastChar = char[char.length - 1];
         console.log(lastChar);
-        if (lastChar && !isNaN(lastChar) ) {
-           inp.value = inp.value.slice(0, inp.value.length-1);
+        if (lastChar && !isNaN(lastChar)) {
+            inp.value = inp.value.slice(0, inp.value.length - 1);
             // console.log(inp);
         }
     }

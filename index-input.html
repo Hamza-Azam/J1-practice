@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #input{    
+    width: 70vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="inputLet" oninput="CheckType()" type="text">
+</body>
+
+<script>
+
+    function CheckType(event) {
+        var char = inputLet.value.split('');
+        var lastChar = char[char.length - 1];
+        console.log(lastChar);
+        if (lastChar && !isNaN(lastChar) ) {
+           inputLet.value = inputLet.value.slice(0, inputLet.value.length-1);
+            // console.log(inputLet);
+        }
+    }
+
+
+</script>
+
+</html>
