@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
@@ -53,7 +53,7 @@ div {
     <div>
 
         <table cellspacing="2" cellpadding="2">
-            <form id="myForm" method="GET">
+            <form id="myForm" method="GET" action="#">
                 <tr>
                     <td>Name</td>
                     <!-- oninput="CheckType()" -->
@@ -103,6 +103,7 @@ div {
                 </tr>
             </form>
         </table>
+        <div id="data"></div>
         <h1 id="result"></h1>
 </body>
 <Script>
@@ -139,7 +140,8 @@ div {
             document.getElementById('result').innerHTML = "Form Submited";
             // return false;
         } else {
-            document.getElementById('result').innerHTML = "Form NOT Submited";
+            var da = "form not submitted" ;
+            document.getElementById('result').innerHTML = da ;
 
         }
         
